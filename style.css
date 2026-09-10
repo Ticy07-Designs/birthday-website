@@ -1,0 +1,767 @@
+body{
+    margin:0;
+    background:black;
+    color:white;
+    font-family:Arial, sans-serif;
+}
+
+.container{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    transition:1s;
+}
+
+.small{
+    color:gray;
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+h1{
+    font-size:55px;
+    margin-bottom:40px;
+}
+
+button{
+    background:white;
+    color:black;
+    border:none;
+    padding:18px 45px;
+    font-size:22px;
+    border-radius:50px;
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+/* Stars */
+
+#stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+
+    from{
+        opacity:0.2;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+/* Fade in */
+
+.container{
+    animation:fadeIn 2s;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* Glowing button */
+
+button{
+
+    box-shadow:0 0 20px rgba(255,255,255,.3);
+
+}
+
+button:hover{
+
+    box-shadow:0 0 40px white;
+
+}
+#nextButton{
+
+    display:none;
+
+    animation:fadeInButton .8s forwards;
+
+}
+
+@keyframes fadeInButton{
+
+    from{
+
+        opacity:0;
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+.chooseTitle{
+
+    margin-bottom:70px;
+
+}
+
+.circleContainer{
+
+    display:flex;
+
+    gap:70px;
+
+}
+
+.circle{
+
+    width:170px;
+    height:170px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.04);
+
+    backdrop-filter:blur(8px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    font-size:55px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    box-shadow:
+        0 0 20px rgba(255,255,255,.08),
+        inset 0 0 15px rgba(255,255,255,.04);
+
+}
+
+.circle p{
+
+    margin-top:12px;
+
+    font-size:18px;
+
+}
+
+.circle:hover{
+
+    transform:translateY(-12px) scale(1.08);
+
+    box-shadow:
+        0 0 45px rgba(255,255,255,.35),
+        inset 0 0 25px rgba(255,255,255,.08);
+
+}
+.circle{
+
+    animation:float 3s ease-in-out infinite;
+
+}
+
+.circle:nth-child(2){
+
+    animation-delay:.5s;
+
+}
+
+.circle:nth-child(3){
+
+    animation-delay:1s;
+
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+.chooseTitle{
+
+    animation:titleFade 1.5s;
+
+}
+
+@keyframes titleFade{
+
+    from{
+
+        opacity:0;
+        letter-spacing:20px;
+
+    }
+
+    to{
+
+        opacity:1;
+        letter-spacing:0px;
+
+    }
+}
+.choices{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin-top:40px;
+}
+
+.choice{
+    cursor:pointer;
+    text-align:center;
+}
+
+.circle{
+    width:90px;
+    height:90px;
+
+    border:2px solid white;
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:35px;
+
+    transition:0.3s;
+}
+
+.circle:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 20px white;
+}
+
+.choice p{
+    margin-top:12px;
+}
+#portrait{
+
+    width:420px;
+
+    border-radius:20px;
+
+    opacity:0;
+
+    transform:scale(0.95);
+
+    transition:2s;
+
+    display:block;
+
+    margin:auto;
+
+}
+
+#birthdayText{
+
+    margin-top:18px;
+
+    transition:2s;
+
+}
+#portraitContainer{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:20px;
+
+}
+#gameGrid{
+
+    display:grid;
+    grid-template-columns:repeat(3,90px);
+    gap:20px;
+    justify-content:center;
+    margin-top:30px;
+
+}
+
+.giftBox{
+
+    width:90px;
+    height:90px;
+    font-size:40px;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
+
+}
+
+#messageBox{
+
+    margin-top:30px;
+}
+#messageBox{
+
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0.8);
+
+    width:320px;
+    padding:25px;
+
+    background:#222;
+    color:white;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    opacity:0;
+
+    transition:0.4s;
+
+    z-index:1000;
+
+    display:none;
+}
+
+#messageBox.show{
+
+    display:block;
+    opacity:1;
+    transform:translate(-50%,-50%) scale(1);
+
+}
+.popHeart{
+    animation: popHeart 0.4s;
+}
+
+@keyframes popHeart{
+    0%{
+        transform: scale(1);
+    }
+
+    50%{
+        transform: scale(1.4);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+#memoryImage{
+
+    width:350px;
+
+    border-radius:20px;
+
+    margin:25px auto;
+
+    display:block;
+
+}
+
+#memoryText{
+
+    font-size:22px;
+
+    margin-bottom:30px;
+
+}
+#letterBox{
+
+    width:420px;
+
+    margin:auto;
+
+    padding:30px;
+
+    border:2px solid white;
+
+    border-radius:20px;
+
+}
+
+#letterText{
+
+    line-height:1.8;
+
+    font-size:20px;
+
+}
+.completed{
+
+    transform:scale(1.05);
+
+}
+
+.completed .circle{
+
+    border:2px solid #6dff88;
+
+    box-shadow:0 0 20px #6dff88;
+
+}
+
+.doneText{
+
+    display:block;
+
+    margin-top:8px;
+
+    color:#6dff88;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+}
+.slideOut{
+
+    animation: slideOut 0.45s forwards;
+
+}
+
+.slideIn{
+
+    animation: slideIn 0.45s forwards;
+
+}
+
+@keyframes slideOut{
+
+    from{
+
+        transform:translateX(0);
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:translateX(-80px);
+        opacity:0;
+
+    }
+
+}
+
+@keyframes slideIn{
+
+    from{
+
+        transform:translateX(80px);
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:translateX(0);
+        opacity:1;
+
+    }
+
+}
+.easterEgg{
+
+    position:fixed;
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    z-index:500;
+
+    cursor:pointer;
+
+    transition:
+    left 8s linear,
+    transform 0.3s;
+
+    border:2px solid white;
+
+}
+
+.easterEgg img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.easterEgg:hover{
+
+    transform:scale(1.1);
+
+}
+
+.eggPop{
+
+    transform:scale(1.8);
+
+    opacity:0;
+
+    transition:0.4s;
+
+}
+
+.eggPop span{
+
+    font-size:60px;
+
+}
+
+.eggMessage{
+
+    position:fixed;
+
+    top:50%;
+    left:50%;
+
+    transform:
+    translate(-50%,-50%)
+    scale(0.7);
+
+    padding:20px 30px;
+
+    background:#222;
+
+    border:2px solid white;
+
+    border-radius:20px;
+
+    font-size:22px;
+
+    opacity:0;
+
+    z-index:1000;
+
+    transition:0.4s;
+
+    text-align:center;
+
+}
+
+.eggMessage.show{
+
+    opacity:1;
+
+    transform:
+    translate(-50%,-50%)
+    scale(1);
+
+}
+.choice.opening{
+    animation: choiceOpen 0.45s ease forwards;
+}
+
+@keyframes choiceOpen{
+
+    0%{
+        transform:scale(1);
+        opacity:1;
+    }
+
+    60%{
+        transform:scale(1.12);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(0.9);
+        opacity:0;
+    }
+
+}
+#letterScene{
+    text-align:center;
+}
+
+#envelope{
+    position:relative;
+    width:320px;
+    height:210px;
+    margin:50px auto 25px;
+    cursor:pointer;
+    perspective:800px;
+}
+
+.envelopeBack{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#8b5e5e;
+    border-radius:8px;
+}
+
+.letterPaper{
+    position:absolute;
+    left:10%;
+    bottom:5px;
+    width:80%;
+    height:180px;
+    background:#fff;
+    color:#222;
+    padding:25px;
+    box-sizing:border-box;
+    border-radius:4px;
+    overflow:hidden;
+    transform:translateY(0);
+    transition:1s ease;
+    z-index:2;
+}
+
+.envelopeFront{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:55%;
+    background:#a96f6f;
+    clip-path:polygon(0 0, 50% 65%, 100% 0, 100% 100%, 0 100%);
+    z-index:4;
+}
+
+.envelopeFlap{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:60%;
+    background:#b97c7c;
+    clip-path:polygon(0 0, 100% 0, 50% 100%);
+    transform-origin:top;
+    transition:0.7s ease;
+    z-index:5;
+}
+
+#envelope.opened .envelopeFlap{
+    transform:rotateX(180deg);
+}
+
+#envelope.opened .letterPaper{
+    transform:translateY(-115px);
+}
+
+#letterHint{
+    font-size:18px;
+    opacity:0.8;
+}
+
+#letterBack{
+    margin-top:30px;
+}
+/* Full letter after envelope animation */
+
+#envelope.letterFullyOpen{
+    width: min(90vw, 500px);
+    height: auto;
+    margin: 40px auto 25px;
+    cursor: default;
+}
+
+/* Hide the envelope completely */
+
+#envelope.letterFullyOpen .envelopeBack,
+#envelope.letterFullyOpen .envelopeFront,
+#envelope.letterFullyOpen .envelopeFlap{
+    display:none;
+}
+
+/* Turn the letter into a clean readable sheet */
+
+#envelope.letterFullyOpen .letterPaper{
+    position:relative;
+    left:auto;
+    bottom:auto;
+
+    width:100%;
+    height:auto;
+    min-height:550px;
+
+    padding:40px;
+    box-sizing:border-box;
+
+    transform:none;
+
+    border-radius:3px;
+
+    overflow:visible;
+
+    text-align:left;
+
+    box-shadow:0 5px 30px rgba(255,255,255,0.15);
+
+    transition:none;
+}
+
+/* Make the actual letter comfortable to read */
+
+#envelope.letterFullyOpen .letterPaper h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+#envelope.letterFullyOpen .letterPaper p{
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+#birthdayVideo{
+    display:block;
+    width:min(90vw, 700px);
+    max-height:70vh;
+    margin:30px auto;
+    border-radius:15px;
+}
