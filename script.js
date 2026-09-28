@@ -16,6 +16,7 @@ for (let i = 0; i < 120; i++) {
 
 }
 startEasterEggs();
+startIKUStars();
 
 // ⭐ Main container
 
@@ -216,17 +217,17 @@ function showMemories(){
 
         {
             image:"memory1.jpg",
-            text:"Our cutest pic everrrrr"
+            text:"Our cutest pic everrrrr🪿"
         },
 
         {
             image:"memory2.jpg",
-            text:"Pre Board ke aakhri din"
+            text:"Pre Board ke aakhri din😩"
         },
 
         {
             image:"memory3.jpg",
-            text:"Placeholder Memory 3"
+            text:"One the best dayss😭😭 fir kb milengeee"
         }
 
     ];
@@ -416,7 +417,7 @@ function showGame(){
     const grid = document.getElementById("gameGrid");
 
     // 9 boxes
-    const hearts = [1,4,7];   // <-- Change these later
+    const hearts = [2,5,7];   // <-- Change these later
 
     let heartsFound = 0;
     let currentButton = null;
@@ -660,35 +661,32 @@ function showCakeScene(){
 function showVideoScene(){
 
     container.innerHTML = `
-        <h1>One Last Thing-My Awkward Ahh😭</h1>
+        <h1>One Last Thing ❤️</h1>
 
-        <video id="birthdayVideo"
-               controls
-               playsinline>
-            <source src="birthdayVideo.mp4" type="video/mp4">
-        </video>
+        <div id="videoWrapper">
+            <iframe
+                src="https://www.youtube.com/embed/duyEAmpol9I"
+                title="For You ❤️"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
 
-        <button id="videoContinue">
+        <button id="videoContinue" type="button">
             Continue
         </button>
     `;
 
-    document.getElementById("videoContinue").addEventListener("click", function(){
+    const button = document.getElementById("videoContinue");
+
+    button.addEventListener("click", function(){
+
+       
 
         showEndScene();
 
     });
-
-}
-function showEndScene(){
-
-    container.innerHTML = `
-        <h1>❤️</h1>
-
-        <p>Thank you for going through everything.</p>
-
-        <p>The End.</p>
-    `;
 
 }
 function startConfetti(){
@@ -773,7 +771,7 @@ function startEasterEggs(){
         {
             type: "photo",
             content: "herphoto2.jpg",
-            message: "Okay... you found another one 😂"
+            message: "Cutie Patootie🤭"
         }
 
     ];
@@ -848,12 +846,12 @@ function startEasterEggs(){
         10000 + Math.random() * 15000;
 
         setTimeout(createEasterEgg,nextTime);
+    
 
     }
 
-    setTimeout(createEasterEgg,8000);
-
 }
+
 function showEggMessage(message){
 
     const messageElement =
@@ -882,5 +880,149 @@ function showEggMessage(message){
         messageElement.remove();
 
     },3000);
+
+}
+function startIKUStars(){
+
+    function showIKU(){
+
+        const stars = [];
+
+        const I = [
+            "11111",
+            "00100",
+            "00100",
+            "00100",
+            "00100",
+            "00100",
+            "11111"
+        ];
+
+        const K = [
+            "10001",
+            "10010",
+            "10100",
+            "11000",
+            "10100",
+            "10010",
+            "10001"
+        ];
+
+        const U = [
+            "10001",
+            "10001",
+            "10001",
+            "10001",
+            "10001",
+            "10001",
+            "01110"
+        ];
+
+        const letters = [I,K,U];
+
+        letters.forEach(function(letter,letterNumber){
+
+            letter.forEach(function(row,rowNumber){
+
+                for(let column=0; column<5; column++){
+
+                    if(row[column] === "1"){
+
+                        const star = document.createElement("div");
+
+                        star.className = "ikuStar";
+                        star.textContent = "✦";
+
+                        star.style.left =
+                            Math.random() * 100 + "vw";
+
+                        star.style.top =
+                            Math.random() * 100 + "vh";
+
+                        document.body.appendChild(star);
+
+                        stars.push({
+                            element:star,
+                            letter:letterNumber,
+                            row:rowNumber,
+                            column:column
+                        });
+
+                    }
+
+                }
+
+            });
+
+        });
+
+        setTimeout(function(){
+
+            stars.forEach(function(item){
+
+                item.element.style.left =
+                    (62 + item.letter * 8 + item.column * 1.2) + "vw";
+
+                item.element.style.top =
+                    (18 + item.row * 2.2) + "vh";
+
+            });
+
+        },100);
+
+        setTimeout(function(){
+
+            stars.forEach(function(item){
+
+                item.element.style.left =
+                    Math.random() * 100 + "vw";
+
+                item.element.style.top =
+                    Math.random() * 100 + "vh";
+
+            });
+
+        },6000);
+
+        setTimeout(function(){
+
+            stars.forEach(function(item){
+
+                item.element.remove();
+
+            });
+
+        },8500);
+
+        setTimeout(showIKU,30000 + Math.random() * 30000);
+
+    }
+
+    setTimeout(showIKU,10000 + Math.random() * 10000);
+
+}
+function showEndScene(){
+
+    container.innerHTML = `
+        <div class="endScene">
+
+            <h1>❤️</h1>
+
+            <h2>THE END itna hi tha bs🥲</h2>
+
+            <p>
+                I hope tujhe acha lga hoga
+            </p>
+
+            <p>
+                Happy Birthday Ikuuuu❤️
+            </p>
+
+            <p class="endLove">
+                I love you.
+            </p>
+
+        </div>
+    `;
 
 }
