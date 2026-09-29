@@ -849,7 +849,7 @@ function startEasterEggs(){
     
 
     }
-
+    setTimeout(createEasterEgg,8000);
 }
 
 function showEggMessage(message){
